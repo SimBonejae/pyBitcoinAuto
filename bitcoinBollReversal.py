@@ -44,18 +44,18 @@ while True:
             if df.PB.values[i] < 0.05 and df.IIP21.values[i] > 0 and buy_check == 'NO':   
                  krw = get_balance("KRW")
                  if krw > 5000: 
-                     #upbit.buy_market_order("KRW-BTC",5100*0.9995)
-                     print('매수') 
+                     upbit.buy_market_order("KRW-BTC",5100*0.9995)
+                     #print('매수') 
                      buy_check = 'YES' 
 
             elif df.PB.values[i] > 0.95 and df.IIP21.values[i] < 0 and buy_check == 'YES': 
                  btc = get_balance("BTC")
                  if btc > 0.00008:
-                    #upbit.sell_market_order("KRW-BTC",btc)      
-                    print('매도')
+                    upbit.sell_market_order("KRW-BTC",btc)      
+                    #print('매도')
                     buy_check='NO'
             else:
-                print("맞는 조건 없음")
+                print("예외 조건 없음")
             
         time.sleep(1)
     except Exception as e:
